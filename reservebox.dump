@@ -497,6 +497,7 @@ CREATE TABLE `auth_v` (
 
 LOCK TABLES `auth_v` WRITE;
 /*!40000 ALTER TABLE `auth_v` DISABLE KEYS */;
+INSERT INTO `auth_v` VALUES (1,'vendor1@localhost','$2y$10$tTY5wZ0h6ELiE5LryKEtROjjQAH5HcNEFUK8MOSvy7Ot1HcuF8eEe'),(2,'vendor2@localhost','$2y$10$OYDInZH1EZqbowMmYZ2Iv.QFG2BCFQAJqZKX6Iyts38Ls7AGsk6gi'),(3,'vendor3@localhost','$2y$10$LDE9Yxrvw0NPbYSasANjyu3oBK3br8VtZPO6Fa27KLD488o3YfnqO');
 /*!40000 ALTER TABLE `auth_v` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -567,7 +568,7 @@ CREATE TABLE `auth_v_register_attempted` (
   `auth_v_register_attempted_token` varchar(255) NOT NULL,
   `auth_v_register_attempted_microtime` bigint(20) NOT NULL,
   PRIMARY KEY (`auth_v_register_attempted_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -576,6 +577,7 @@ CREATE TABLE `auth_v_register_attempted` (
 
 LOCK TABLES `auth_v_register_attempted` WRITE;
 /*!40000 ALTER TABLE `auth_v_register_attempted` DISABLE KEYS */;
+INSERT INTO `auth_v_register_attempted` VALUES (1,'vendor1@localhost','c218ac4a39273350dc93216010780e5c',1568294675282825),(2,'vendor2@localhost','c92ff0d816ca5e66ec98c68887537eee',1568294712662568),(3,'vendor3@localhost','7b8b31047045c0f0c2cd135fa4aa0a6e',1568294731930931);
 /*!40000 ALTER TABLE `auth_v_register_attempted` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -596,7 +598,7 @@ CREATE TABLE `auth_v_register_succeeded` (
   KEY `vendor_id` (`vendor_id`),
   CONSTRAINT `auth_v_register_succeeded_ibfk_1` FOREIGN KEY (`auth_v_register_attempted_id`) REFERENCES `auth_v_register_attempted` (`auth_v_register_attempted_id`),
   CONSTRAINT `auth_v_register_succeeded_ibfk_2` FOREIGN KEY (`vendor_id`) REFERENCES `vendor` (`vendor_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -605,6 +607,7 @@ CREATE TABLE `auth_v_register_succeeded` (
 
 LOCK TABLES `auth_v_register_succeeded` WRITE;
 /*!40000 ALTER TABLE `auth_v_register_succeeded` DISABLE KEYS */;
+INSERT INTO `auth_v_register_succeeded` VALUES (1,1,1,1568294688094186),(2,2,2,1568294722980722),(3,3,3,1568294743330270);
 /*!40000 ALTER TABLE `auth_v_register_succeeded` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -719,7 +722,7 @@ CREATE TABLE `vendor` (
   `vendor_id` int(11) NOT NULL AUTO_INCREMENT,
   `vendor_name` varchar(255) NOT NULL,
   PRIMARY KEY (`vendor_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -728,6 +731,7 @@ CREATE TABLE `vendor` (
 
 LOCK TABLES `vendor` WRITE;
 /*!40000 ALTER TABLE `vendor` DISABLE KEYS */;
+INSERT INTO `vendor` VALUES (1,'Vendor1'),(2,'Vendor2'),(3,'Vendor3');
 /*!40000 ALTER TABLE `vendor` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -740,4 +744,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-09-12 22:17:36
+-- Dump completed on 2019-09-12 22:25:47

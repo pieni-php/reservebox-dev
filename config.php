@@ -48,17 +48,8 @@ return [
 					],
 				],
 				'auth_v' => [
-					'join' => [
-						'argc' => 0,
-					],
-					'register' => [
-						'argc' => 2,
-					],
 					'login' => [
 						'argc' => 0,
-					],
-					'change_email_verify' => [
-						'argc' => 2,
 					],
 					'forgot_password' => [
 						'argc' => 0,
@@ -111,13 +102,7 @@ return [
 					],
 				],
 				'auth_v' => [
-					'unregister' => [
-						'argc' => 0,
-					],
 					'logout' => [
-						'argc' => 0,
-					],
-					'change_email' => [
 						'argc' => 0,
 					],
 					'change_password' => [
@@ -165,17 +150,8 @@ return [
 					],
 				],
 				'auth_v' => [
-					'join' => [
-						'argc' => 0,
-					],
-					'register' => [
-						'argc' => 2,
-					],
 					'login' => [
 						'argc' => 0,
-					],
-					'change_email_verify' => [
-						'argc' => 2,
 					],
 					'forgot_password' => [
 						'argc' => 0,
@@ -213,13 +189,7 @@ return [
 			],
 			'v' => [
 				'auth_v' => [
-					'unregister' => [
-						'argc' => 0,
-					],
 					'logout' => [
-						'argc' => 0,
-					],
-					'change_email' => [
 						'argc' => 0,
 					],
 					'change_password' => [
