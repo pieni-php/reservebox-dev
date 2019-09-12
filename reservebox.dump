@@ -36,7 +36,7 @@ CREATE TABLE `agent` (
   `agent_id` int(11) NOT NULL AUTO_INCREMENT,
   `agent_name` varchar(255) NOT NULL,
   PRIMARY KEY (`agent_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -45,6 +45,7 @@ CREATE TABLE `agent` (
 
 LOCK TABLES `agent` WRITE;
 /*!40000 ALTER TABLE `agent` DISABLE KEYS */;
+INSERT INTO `agent` VALUES (1,'Agent1'),(2,'Agent2'),(3,'Agent3');
 /*!40000 ALTER TABLE `agent` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -71,6 +72,7 @@ CREATE TABLE `auth_a` (
 
 LOCK TABLES `auth_a` WRITE;
 /*!40000 ALTER TABLE `auth_a` DISABLE KEYS */;
+INSERT INTO `auth_a` VALUES (1,'agent1@localhost','$2y$10$UVB.l.ZK25XntA8JkzORbeRfYYiZd.05h8EBepesiBQvQWHIRJ.iS'),(2,'agent2@localhost','$2y$10$eT.Thg60nm/YgZ9h1XJeYuZAsXIoFgqb7P4zCLZJqwq/oe8K0ZR52'),(3,'agent3@localhost','$2y$10$59SMhAz3/ZVX04DZhm/Xz.RI1ESdOywlnSzyysbfzJJ9MnE/MRHZe');
 /*!40000 ALTER TABLE `auth_a` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -141,7 +143,7 @@ CREATE TABLE `auth_a_register_attempted` (
   `auth_a_register_attempted_token` varchar(255) NOT NULL,
   `auth_a_register_attempted_microtime` bigint(20) NOT NULL,
   PRIMARY KEY (`auth_a_register_attempted_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -150,6 +152,7 @@ CREATE TABLE `auth_a_register_attempted` (
 
 LOCK TABLES `auth_a_register_attempted` WRITE;
 /*!40000 ALTER TABLE `auth_a_register_attempted` DISABLE KEYS */;
+INSERT INTO `auth_a_register_attempted` VALUES (1,'agent1@localhost','ca8a7a00f98d0372fad5f7ce46666b21',1568294157892721),(2,'agent2@localhost','a852e30ff72846e3d9e223cfc3392267',1568294193327901),(3,'agent3@localhost','223dda2f1aaae0402b5ae7cd66069cc7',1568294218136178);
 /*!40000 ALTER TABLE `auth_a_register_attempted` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -170,7 +173,7 @@ CREATE TABLE `auth_a_register_succeeded` (
   KEY `agent_id` (`agent_id`),
   CONSTRAINT `auth_a_register_succeeded_ibfk_1` FOREIGN KEY (`auth_a_register_attempted_id`) REFERENCES `auth_a_register_attempted` (`auth_a_register_attempted_id`),
   CONSTRAINT `auth_a_register_succeeded_ibfk_2` FOREIGN KEY (`agent_id`) REFERENCES `agent` (`agent_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -179,6 +182,7 @@ CREATE TABLE `auth_a_register_succeeded` (
 
 LOCK TABLES `auth_a_register_succeeded` WRITE;
 /*!40000 ALTER TABLE `auth_a_register_succeeded` DISABLE KEYS */;
+INSERT INTO `auth_a_register_succeeded` VALUES (1,1,1,1568294174348368),(2,2,2,1568294208992745),(3,3,3,1568294236838711);
 /*!40000 ALTER TABLE `auth_a_register_succeeded` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -736,4 +740,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-09-12 22:10:58
+-- Dump completed on 2019-09-12 22:17:36
