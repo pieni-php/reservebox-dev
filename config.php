@@ -113,11 +113,6 @@ return [
 		],
 		'api' => [
 			'g' => [
-				'auth' => [
-					'initialize' => [
-						'argc' => 2,
-					],
-				],
 				'auth_m' => [
 					'join' => [
 						'argc' => 0,
