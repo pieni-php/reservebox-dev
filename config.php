@@ -7,7 +7,7 @@ return [
 	],
 	'debug' => true,
 	'languages' => ['ja'],
-	'actors' => ['g', 'm', 'a'],
+	'actors' => ['g', 'm', 'a', 'v'],
 	'actions' => [
 		'page' => [
 			'g' => [
@@ -56,6 +56,26 @@ return [
 						'argc' => 2,
 					],
 				],
+				'auth_v' => [
+					'join' => [
+						'argc' => 0,
+					],
+					'register' => [
+						'argc' => 2,
+					],
+					'login' => [
+						'argc' => 0,
+					],
+					'change_email_verify' => [
+						'argc' => 2,
+					],
+					'forgot_password' => [
+						'argc' => 0,
+					],
+					'reset_password' => [
+						'argc' => 2,
+					],
+				],
 			],
 			'm' => [
 				'welcome' => [
@@ -85,6 +105,27 @@ return [
 					],
 				],
 				'auth_a' => [
+					'unregister' => [
+						'argc' => 0,
+					],
+					'logout' => [
+						'argc' => 0,
+					],
+					'change_email' => [
+						'argc' => 0,
+					],
+					'change_password' => [
+						'argc' => 0,
+					],
+				],
+			],
+			'v' => [
+				'welcome' => [
+					'index' => [
+						'argc' => 0,
+					],
+				],
+				'auth_v' => [
 					'unregister' => [
 						'argc' => 0,
 					],
@@ -147,6 +188,26 @@ return [
 						'argc' => 2,
 					],
 				],
+				'auth_v' => [
+					'join' => [
+						'argc' => 0,
+					],
+					'register' => [
+						'argc' => 2,
+					],
+					'login' => [
+						'argc' => 0,
+					],
+					'change_email_verify' => [
+						'argc' => 2,
+					],
+					'forgot_password' => [
+						'argc' => 0,
+					],
+					'reset_password' => [
+						'argc' => 2,
+					],
+				],
 			],
 			'm' => [
 				'auth_m' => [
@@ -166,6 +227,22 @@ return [
 			],
 			'a' => [
 				'auth_a' => [
+					'unregister' => [
+						'argc' => 0,
+					],
+					'logout' => [
+						'argc' => 0,
+					],
+					'change_email' => [
+						'argc' => 0,
+					],
+					'change_password' => [
+						'argc' => 0,
+					],
+				],
+			],
+			'v' => [
+				'auth_v' => [
 					'unregister' => [
 						'argc' => 0,
 					],

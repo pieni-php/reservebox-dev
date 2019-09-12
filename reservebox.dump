@@ -471,6 +471,217 @@ LOCK TABLES `auth_m_unregistered` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `auth_v`
+--
+
+DROP TABLE IF EXISTS `auth_v`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `auth_v` (
+  `vendor_id` int(11) NOT NULL,
+  `vendor_email` varchar(255) NOT NULL,
+  `vendor_password` varchar(255) NOT NULL,
+  PRIMARY KEY (`vendor_id`),
+  UNIQUE KEY `vendor_email` (`vendor_email`),
+  CONSTRAINT `auth_v_ibfk_1` FOREIGN KEY (`vendor_id`) REFERENCES `vendor` (`vendor_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `auth_v`
+--
+
+LOCK TABLES `auth_v` WRITE;
+/*!40000 ALTER TABLE `auth_v` DISABLE KEYS */;
+/*!40000 ALTER TABLE `auth_v` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `auth_v_change_email_attempted`
+--
+
+DROP TABLE IF EXISTS `auth_v_change_email_attempted`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `auth_v_change_email_attempted` (
+  `auth_v_change_email_attempted_id` int(11) NOT NULL AUTO_INCREMENT,
+  `vendor_id` int(11) NOT NULL,
+  `vendor_email` varchar(255) NOT NULL,
+  `auth_v_change_email_attempted_token` varchar(255) NOT NULL,
+  `auth_v_change_email_attempted_microtime` bigint(20) NOT NULL,
+  PRIMARY KEY (`auth_v_change_email_attempted_id`),
+  KEY `vendor_id` (`vendor_id`),
+  CONSTRAINT `auth_v_change_email_attempted_ibfk_1` FOREIGN KEY (`vendor_id`) REFERENCES `vendor` (`vendor_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `auth_v_change_email_attempted`
+--
+
+LOCK TABLES `auth_v_change_email_attempted` WRITE;
+/*!40000 ALTER TABLE `auth_v_change_email_attempted` DISABLE KEYS */;
+/*!40000 ALTER TABLE `auth_v_change_email_attempted` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `auth_v_change_email_succeeded`
+--
+
+DROP TABLE IF EXISTS `auth_v_change_email_succeeded`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `auth_v_change_email_succeeded` (
+  `auth_v_change_email_succeeded_id` int(11) NOT NULL AUTO_INCREMENT,
+  `auth_v_change_email_attempted_id` int(11) NOT NULL,
+  `auth_v_change_email_succeeded_microtime` bigint(20) NOT NULL,
+  PRIMARY KEY (`auth_v_change_email_succeeded_id`),
+  KEY `auth_v_change_email_attempted_id` (`auth_v_change_email_attempted_id`),
+  CONSTRAINT `auth_v_change_email_succeeded_ibfk_1` FOREIGN KEY (`auth_v_change_email_attempted_id`) REFERENCES `auth_v_change_email_attempted` (`auth_v_change_email_attempted_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `auth_v_change_email_succeeded`
+--
+
+LOCK TABLES `auth_v_change_email_succeeded` WRITE;
+/*!40000 ALTER TABLE `auth_v_change_email_succeeded` DISABLE KEYS */;
+/*!40000 ALTER TABLE `auth_v_change_email_succeeded` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `auth_v_register_attempted`
+--
+
+DROP TABLE IF EXISTS `auth_v_register_attempted`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `auth_v_register_attempted` (
+  `auth_v_register_attempted_id` int(11) NOT NULL AUTO_INCREMENT,
+  `vendor_email` varchar(255) NOT NULL,
+  `auth_v_register_attempted_token` varchar(255) NOT NULL,
+  `auth_v_register_attempted_microtime` bigint(20) NOT NULL,
+  PRIMARY KEY (`auth_v_register_attempted_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `auth_v_register_attempted`
+--
+
+LOCK TABLES `auth_v_register_attempted` WRITE;
+/*!40000 ALTER TABLE `auth_v_register_attempted` DISABLE KEYS */;
+/*!40000 ALTER TABLE `auth_v_register_attempted` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `auth_v_register_succeeded`
+--
+
+DROP TABLE IF EXISTS `auth_v_register_succeeded`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `auth_v_register_succeeded` (
+  `auth_v_register_succeeded_id` int(11) NOT NULL AUTO_INCREMENT,
+  `auth_v_register_attempted_id` int(11) NOT NULL,
+  `vendor_id` int(11) NOT NULL,
+  `auth_v_register_succeeded_microtime` bigint(20) NOT NULL,
+  PRIMARY KEY (`auth_v_register_succeeded_id`),
+  KEY `auth_v_register_attempted_id` (`auth_v_register_attempted_id`),
+  KEY `vendor_id` (`vendor_id`),
+  CONSTRAINT `auth_v_register_succeeded_ibfk_1` FOREIGN KEY (`auth_v_register_attempted_id`) REFERENCES `auth_v_register_attempted` (`auth_v_register_attempted_id`),
+  CONSTRAINT `auth_v_register_succeeded_ibfk_2` FOREIGN KEY (`vendor_id`) REFERENCES `vendor` (`vendor_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `auth_v_register_succeeded`
+--
+
+LOCK TABLES `auth_v_register_succeeded` WRITE;
+/*!40000 ALTER TABLE `auth_v_register_succeeded` DISABLE KEYS */;
+/*!40000 ALTER TABLE `auth_v_register_succeeded` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `auth_v_reset_password_attempted`
+--
+
+DROP TABLE IF EXISTS `auth_v_reset_password_attempted`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `auth_v_reset_password_attempted` (
+  `auth_v_reset_password_attempted_id` int(11) NOT NULL AUTO_INCREMENT,
+  `vendor_id` int(11) NOT NULL,
+  `auth_v_reset_password_attempted_token` varchar(255) NOT NULL,
+  `auth_v_reset_password_attempted_microtime` bigint(20) NOT NULL,
+  PRIMARY KEY (`auth_v_reset_password_attempted_id`),
+  KEY `vendor_id` (`vendor_id`),
+  CONSTRAINT `auth_v_reset_password_attempted_ibfk_1` FOREIGN KEY (`vendor_id`) REFERENCES `vendor` (`vendor_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `auth_v_reset_password_attempted`
+--
+
+LOCK TABLES `auth_v_reset_password_attempted` WRITE;
+/*!40000 ALTER TABLE `auth_v_reset_password_attempted` DISABLE KEYS */;
+/*!40000 ALTER TABLE `auth_v_reset_password_attempted` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `auth_v_reset_password_succeeded`
+--
+
+DROP TABLE IF EXISTS `auth_v_reset_password_succeeded`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `auth_v_reset_password_succeeded` (
+  `auth_v_reset_password_succeeded_id` int(11) NOT NULL AUTO_INCREMENT,
+  `auth_v_reset_password_attempted_id` int(11) NOT NULL,
+  `auth_v_reset_password_succeeded_microtime` bigint(20) NOT NULL,
+  PRIMARY KEY (`auth_v_reset_password_succeeded_id`),
+  KEY `auth_v_reset_password_attempted_id` (`auth_v_reset_password_attempted_id`),
+  CONSTRAINT `auth_v_reset_password_succeeded_ibfk_1` FOREIGN KEY (`auth_v_reset_password_attempted_id`) REFERENCES `auth_v_reset_password_attempted` (`auth_v_reset_password_attempted_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `auth_v_reset_password_succeeded`
+--
+
+LOCK TABLES `auth_v_reset_password_succeeded` WRITE;
+/*!40000 ALTER TABLE `auth_v_reset_password_succeeded` DISABLE KEYS */;
+/*!40000 ALTER TABLE `auth_v_reset_password_succeeded` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `auth_v_unregistered`
+--
+
+DROP TABLE IF EXISTS `auth_v_unregistered`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `auth_v_unregistered` (
+  `vendor_id` int(11) NOT NULL,
+  `auth_v_unregistered_microtime` bigint(20) NOT NULL,
+  KEY `vendor_id` (`vendor_id`),
+  CONSTRAINT `auth_v_unregistered_ibfk_1` FOREIGN KEY (`vendor_id`) REFERENCES `vendor` (`vendor_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `auth_v_unregistered`
+--
+
+LOCK TABLES `auth_v_unregistered` WRITE;
+/*!40000 ALTER TABLE `auth_v_unregistered` DISABLE KEYS */;
+/*!40000 ALTER TABLE `auth_v_unregistered` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `member`
 --
 
@@ -492,6 +703,29 @@ LOCK TABLES `member` WRITE;
 /*!40000 ALTER TABLE `member` DISABLE KEYS */;
 /*!40000 ALTER TABLE `member` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `vendor`
+--
+
+DROP TABLE IF EXISTS `vendor`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `vendor` (
+  `vendor_id` int(11) NOT NULL AUTO_INCREMENT,
+  `vendor_name` varchar(255) NOT NULL,
+  PRIMARY KEY (`vendor_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `vendor`
+--
+
+LOCK TABLES `vendor` WRITE;
+/*!40000 ALTER TABLE `vendor` DISABLE KEYS */;
+/*!40000 ALTER TABLE `vendor` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -502,4 +736,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-09-12 22:00:30
+-- Dump completed on 2019-09-12 22:10:58
