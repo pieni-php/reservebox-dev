@@ -1,5 +1,5 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="<?php $this->href(''); ?>">Auth demo</a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="<?php $this->href(''); ?>">Agent</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse">
     <span class="navbar-toggler-icon"></span>
   </button>
