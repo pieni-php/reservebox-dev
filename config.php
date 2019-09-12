@@ -131,6 +131,17 @@ return [
 						'argc' => 1,
 					],
 				],
+				'member' => [
+					'index' => [
+						'argc' => 0,
+					],
+					'view' => [
+						'argc' => 1,
+					],
+					'edit' => [
+						'argc' => 1,
+					],
+				],
 			],
 		],
 		'api' => [
@@ -228,6 +239,20 @@ return [
 					],
 				],
 				'agent' => [
+					'index' => [
+						'argc' => 0,
+					],
+					'view' => [
+						'argc' => 1,
+					],
+					'edit' => [
+						'argc' => 1,
+					],
+					'edit_affect' => [
+						'argc' => 1,
+					],
+				],
+				'member' => [
 					'index' => [
 						'argc' => 0,
 					],
