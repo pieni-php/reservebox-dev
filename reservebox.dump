@@ -152,6 +152,7 @@ CREATE TABLE `auth_m` (
 
 LOCK TABLES `auth_m` WRITE;
 /*!40000 ALTER TABLE `auth_m` DISABLE KEYS */;
+INSERT INTO `auth_m` VALUES (1,'member1@localhost','$2y$10$gxPGtlgUFQUfzmJmER9IMuIUce9rzBjDELXMZICBhqWUiWwh66JWq'),(2,'member2@localhost','$2y$10$5/zNxNPkn9E24uQ9Fg4eC.dCXDMfo4QVi/EoAahWlPS7dr7qf6wcS'),(3,'member3@localhost','$2y$10$2vT.PcFB4YYA1ziB0xrMO.wnxLBQvY6VsuZeO3uX3qQ/4CXdx1xM.');
 /*!40000 ALTER TABLE `auth_m` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -222,7 +223,7 @@ CREATE TABLE `auth_m_register_attempted` (
   `auth_m_register_attempted_token` varchar(255) NOT NULL,
   `auth_m_register_attempted_microtime` bigint(20) NOT NULL,
   PRIMARY KEY (`auth_m_register_attempted_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -231,6 +232,7 @@ CREATE TABLE `auth_m_register_attempted` (
 
 LOCK TABLES `auth_m_register_attempted` WRITE;
 /*!40000 ALTER TABLE `auth_m_register_attempted` DISABLE KEYS */;
+INSERT INTO `auth_m_register_attempted` VALUES (1,'member1@localhost','38b678fe64fda3ddfc953cb201b220e6',1568295561344420),(2,'member2@localhost','ad87d05078f35b5773b13cd0a502cd5f',1568295583466041),(3,'member3@localhost','48f8966fa3b730add25a5e362b07bef5',1568295593951342);
 /*!40000 ALTER TABLE `auth_m_register_attempted` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -251,7 +253,7 @@ CREATE TABLE `auth_m_register_succeeded` (
   KEY `member_id` (`member_id`),
   CONSTRAINT `auth_m_register_succeeded_ibfk_1` FOREIGN KEY (`auth_m_register_attempted_id`) REFERENCES `auth_m_register_attempted` (`auth_m_register_attempted_id`),
   CONSTRAINT `auth_m_register_succeeded_ibfk_2` FOREIGN KEY (`member_id`) REFERENCES `member` (`member_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -260,6 +262,7 @@ CREATE TABLE `auth_m_register_succeeded` (
 
 LOCK TABLES `auth_m_register_succeeded` WRITE;
 /*!40000 ALTER TABLE `auth_m_register_succeeded` DISABLE KEYS */;
+INSERT INTO `auth_m_register_succeeded` VALUES (1,1,1,1568295572152050),(2,2,2,1568295622332988),(3,3,3,1568295634736939);
 /*!40000 ALTER TABLE `auth_m_register_succeeded` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -431,7 +434,7 @@ CREATE TABLE `member` (
   `member_id` int(11) NOT NULL AUTO_INCREMENT,
   `member_name` varchar(255) NOT NULL,
   PRIMARY KEY (`member_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -440,6 +443,7 @@ CREATE TABLE `member` (
 
 LOCK TABLES `member` WRITE;
 /*!40000 ALTER TABLE `member` DISABLE KEYS */;
+INSERT INTO `member` VALUES (1,'Member1'),(2,'Member2'),(3,'Member3');
 /*!40000 ALTER TABLE `member` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -476,4 +480,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-09-12 22:32:51
+-- Dump completed on 2019-09-12 22:40:45
