@@ -120,6 +120,17 @@ return [
 						'argc' => 1,
 					],
 				],
+				'agent' => [
+					'index' => [
+						'argc' => 0,
+					],
+					'view' => [
+						'argc' => 1,
+					],
+					'edit' => [
+						'argc' => 1,
+					],
+				],
 			],
 		],
 		'api' => [
@@ -203,6 +214,20 @@ return [
 					],
 				],
 				'vendor' => [
+					'index' => [
+						'argc' => 0,
+					],
+					'view' => [
+						'argc' => 1,
+					],
+					'edit' => [
+						'argc' => 1,
+					],
+					'edit_affect' => [
+						'argc' => 1,
+					],
+				],
+				'agent' => [
 					'index' => [
 						'argc' => 0,
 					],
