@@ -14,6 +14,7 @@
       <li class="nav-item<?php if ($this->request['target'] === 'vendor'): ?> active<?php endif; ?>"><a class="nav-link" href="<?php $this->href('vendor', ['actor' => 'v']); ?>">vendor</a></li>
       <li class="nav-item<?php if ($this->request['target'] === 'agent'): ?> active<?php endif; ?>"><a class="nav-link" href="<?php $this->href('agent', ['actor' => 'v']); ?>">agent</a></li>
       <li class="nav-item<?php if ($this->request['target'] === 'member'): ?> active<?php endif; ?>"><a class="nav-link" href="<?php $this->href('member', ['actor' => 'v']); ?>">member</a></li>
+      <li class="nav-item<?php if ($this->request['target'] === 'resource'): ?> active<?php endif; ?>"><a class="nav-link" href="<?php $this->href('resource', ['actor' => 'v']); ?>">resource</a></li>
 <?php endif; ?>
     </ul>
   </div>
