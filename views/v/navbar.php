@@ -5,9 +5,6 @@
   </button>
   <div class="collapse navbar-collapse">
     <ul class="navbar-nav mr-auto">
-<?php if (!isset($_SESSION['auth']['v'])): ?>
-      <li class="nav-item<?php if ($this->request['target'] === 'auth_v' && $this->request['action'] === 'login'): ?> active<?php endif; ?>"><a class="nav-link" href="<?php $this->href('auth_v/login', ['actor' => 'g']); ?>">Login</a></li>
-<?php endif; ?>
 <?php if (isset($_SESSION['auth']['v'])): ?>
       <li class="nav-item<?php if ($this->request['target'] === 'auth_v' && $this->request['action'] === 'logout'): ?> active<?php endif; ?>"><a class="nav-link" href="<?php $this->href('auth_v/logout', ['actor' => 'v']); ?>">Logout</a></li>
       <li class="nav-item<?php if ($this->request['target'] === 'auth_v' && $this->request['action'] === 'change_password'): ?> active<?php endif; ?>"><a class="nav-link" href="<?php $this->href('auth_v/change_password', ['actor' => 'v']); ?>">Change Password</a></li>
