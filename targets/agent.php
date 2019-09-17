@@ -4,6 +4,9 @@ return [
 	'table' => 'agent',
 	'id_expr' => '`agent_id`',
 	'name_expr' => '`agent_name`',
+	'has_children' => [
+		'resource',
+	],
 	'columns' => [
 		'agent_id' => [
 			'data_type' => PDO::PARAM_INT,

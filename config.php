@@ -285,6 +285,9 @@ return [
 					],
 				],
 				'resource' => [
+					'child_of' => [
+						'argc' => 2,
+					],
 					'index' => [
 						'argc' => 0,
 					],

@@ -19,6 +19,13 @@ return [
 		],
 	],
 	'actions' => [
+		'child_of' => [
+			'columns' => [
+				'agent_id',
+				'agent_name',
+				'resource_name',
+			],
+		],
 		'index' => [
 			'columns' => [
 				'agent_id',
