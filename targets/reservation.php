@@ -1,71 +1,68 @@
 <?php
 return [
 	'fallback' => 'crud',
-	'table' => 'resource',
-	'id_expr' => '`resource_id`',
-	'name_expr' => '`resource_name`',
+	'table' => 'reservation',
+	'id_expr' => '`reservation_id`',
+	'name_expr' => '`reservation_from`',
 	'join_tables' => [
-		'NATURAL JOIN `agent`',
-	],
-	'has_children' => [
-		'reservation',
+'NATURAL JOIN `resource`',
 	],
 	'columns' => [
-		'agent_id' => [
+		'resource_id' => [
 			'data_type' => PDO::PARAM_INT,
-		],
-		'agent_name' => [
-			'data_type' => PDO::PARAM_STR,
 		],
 		'resource_name' => [
 			'data_type' => PDO::PARAM_STR,
+		],
+		'reservation_from' => [
+			'data_type' => PDO::PARAM_INT,
 		],
 	],
 	'actions' => [
 		'child_of' => [
 			'columns' => [
-				'agent_id',
-				'agent_name',
+				'resource_id',
 				'resource_name',
+				'reservation_from',
 			],
 		],
 		'index' => [
 			'columns' => [
-				'agent_id',
-				'agent_name',
+				'resource_id',
 				'resource_name',
+				'reservation_from',
 			],
 		],
 		'view' => [
 			'columns' => [
-				'agent_id',
-				'agent_name',
+				'resource_id',
 				'resource_name',
+				'reservation_from',
 			],
 		],
 		'add_affect' => [
 			'columns' => [
-				'agent_id',
-				'resource_name',
+				'resource_id',
+				'reservation_from',
 			],
 		],
 		'edit' => [
 			'columns' => [
-				'agent_id',
-				'agent_name',
+				'resource_id',
 				'resource_name',
+				'reservation_from',
 			],
 		],
 		'edit_affect' => [
 			'columns' => [
-				'resource_name',
+				'reservation_from',
 			],
 		],
 		'delete' => [
 			'columns' => [
-				'agent_id',
-				'agent_name',
+				'resource_id',
 				'resource_name',
+				'reservation_from',
 			],
 		],
 	],

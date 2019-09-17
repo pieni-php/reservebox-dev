@@ -160,6 +160,23 @@ return [
 						'argc' => 1,
 					],
 				],
+				'reservation' => [
+					'index' => [
+						'argc' => 0,
+					],
+					'view' => [
+						'argc' => 1,
+					],
+					'add' => [
+						'argc' => 0,
+					],
+					'edit' => [
+						'argc' => 1,
+					],
+					'delete' => [
+						'argc' => 1,
+					],
+				],
 			],
 		],
 		'api' => [
@@ -285,6 +302,32 @@ return [
 					],
 				],
 				'resource' => [
+					'child_of' => [
+						'argc' => 2,
+					],
+					'index' => [
+						'argc' => 0,
+					],
+					'view' => [
+						'argc' => 1,
+					],
+					'add_affect' => [
+						'argc' => 0,
+					],
+					'edit' => [
+						'argc' => 1,
+					],
+					'edit_affect' => [
+						'argc' => 1,
+					],
+					'delete' => [
+						'argc' => 1,
+					],
+					'delete_affect' => [
+						'argc' => 1,
+					],
+				],
+				'reservation' => [
 					'child_of' => [
 						'argc' => 2,
 					],
