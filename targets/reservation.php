@@ -26,10 +26,8 @@ return [
 				'reservation_from',
 			],
 		],
-		'index' => [
+		'add_child_of_affect' => [
 			'columns' => [
-				'resource_id',
-				'resource_name',
 				'reservation_from',
 			],
 		],
@@ -37,12 +35,6 @@ return [
 			'columns' => [
 				'resource_id',
 				'resource_name',
-				'reservation_from',
-			],
-		],
-		'add_affect' => [
-			'columns' => [
-				'resource_id',
 				'reservation_from',
 			],
 		],

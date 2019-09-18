@@ -34,23 +34,10 @@ return [
 				'resource_name',
 			],
 		],
-		'index' => [
-			'columns' => [
-				'agent_id',
-				'agent_name',
-				'resource_name',
-			],
-		],
 		'view' => [
 			'columns' => [
 				'agent_id',
 				'agent_name',
-				'resource_name',
-			],
-		],
-		'add_affect' => [
-			'columns' => [
-				'agent_id',
 				'resource_name',
 			],
 		],

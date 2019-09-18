@@ -158,14 +158,11 @@ return [
 					],
 				],
 				'reservation' => [
-					'index' => [
-						'argc' => 0,
+					'add_child_of' => [
+						'argc' => 2,
 					],
 					'view' => [
 						'argc' => 1,
-					],
-					'add' => [
-						'argc' => 0,
 					],
 					'edit' => [
 						'argc' => 1,
@@ -308,9 +305,6 @@ return [
 					'view' => [
 						'argc' => 1,
 					],
-					'add_affect' => [
-						'argc' => 0,
-					],
 					'edit' => [
 						'argc' => 1,
 					],
@@ -328,14 +322,11 @@ return [
 					'child_of' => [
 						'argc' => 2,
 					],
-					'index' => [
-						'argc' => 0,
+					'add_child_of_affect' => [
+						'argc' => 2,
 					],
 					'view' => [
 						'argc' => 1,
-					],
-					'add_affect' => [
-						'argc' => 0,
 					],
 					'edit' => [
 						'argc' => 1,
