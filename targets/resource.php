@@ -29,6 +29,11 @@ return [
 				'resource_name',
 			],
 		],
+		'add_child_of_affect' => [
+			'columns' => [
+				'resource_name',
+			],
+		],
 		'index' => [
 			'columns' => [
 				'agent_id',

@@ -144,6 +144,9 @@ return [
 					],
 				],
 				'resource' => [
+					'add_child_of' => [
+						'argc' => 2,
+					],
 					'index' => [
 						'argc' => 0,
 					],
@@ -303,6 +306,9 @@ return [
 				],
 				'resource' => [
 					'child_of' => [
+						'argc' => 2,
+					],
+					'add_child_of_affect' => [
 						'argc' => 2,
 					],
 					'index' => [
