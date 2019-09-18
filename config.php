@@ -147,14 +147,8 @@ return [
 					'add_child_of' => [
 						'argc' => 2,
 					],
-					'index' => [
-						'argc' => 0,
-					],
 					'view' => [
 						'argc' => 1,
-					],
-					'add' => [
-						'argc' => 0,
 					],
 					'edit' => [
 						'argc' => 1,
@@ -310,9 +304,6 @@ return [
 					],
 					'add_child_of_affect' => [
 						'argc' => 2,
-					],
-					'index' => [
-						'argc' => 0,
 					],
 					'view' => [
 						'argc' => 1,
